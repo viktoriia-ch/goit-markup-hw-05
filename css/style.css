@@ -4,6 +4,8 @@
     --primary-text-color: #757575;
     --title-text-color: #212121;
     --accent-color: #2196F3;
+    --transition-duration: 250ms;
+    --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -118,7 +120,7 @@ img {
     letter-spacing: 0.02em;
     color: #212121;
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 
@@ -138,7 +140,7 @@ img {
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
 
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transition-duration) var(--transition-timing-function);
 }
 
 .auth-nav-item-link:hover,
@@ -153,6 +155,7 @@ img {
 .auth-nav-svg {
     fill: currentColor;
     margin-right: 10px;
+    transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
 .auth-nav-item-link:hover .auth-nav-svg,
@@ -285,18 +288,11 @@ img {
     margin-right: 30px;
 }
 
-.wrapper-description {
+.over-description {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-
-    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1), opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(100%);
-}
-
-.about-list-description {
     padding: 27px 0;
 
     font-weight: 700;
@@ -308,11 +304,6 @@ img {
 
     background-color: rgb(47, 48, 58, 0.8);
     color: #FFFFFF;
-}
-
-.about-list-item:hover .wrapper-description {
-    transform: translateY(0);
-    opacity: 1;
 }
 
 /* END SECTION 2 */
@@ -375,7 +366,7 @@ img {
     width: 44px;
     height: 44px;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .social-list-link:hover,
@@ -414,7 +405,7 @@ img {
     border: 1px solid #AFB1B8;
     border-radius: 4px;
 
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border var(--transition-duration) var(--transition-timing-function);
 }
 
 .clients-list-link:hover,
@@ -428,7 +419,7 @@ img {
 
 .clients-list-svg {
     fill: #afb1b8;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--transition-duration) var(--transition-timing-function);
 }
 
 .clients-list-link:hover .clients-list-svg,
@@ -464,7 +455,7 @@ img {
     color: #212121;
     cursor: pointer;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--transition-timing-function), color var(--transition-duration) var(--transition-timing-function), box-shadow var(--transition-duration) var(--transition-timing-function);
 }
 
 .btn:hover,
@@ -494,6 +485,44 @@ img {
     margin-right: 0;
 }
 
+.wrapper-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 63px 24px;
+
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    background-color: rgba(33, 150, 243, 0.9);
+
+    transition: transform var(--transition-duration) var(--transition-timing-function), opacity var(--transition-duration) var(--transition-timing-function);
+    transform: translateY(100%);
+}
+
+.exemples-list-link {
+    display: block;
+
+    transition: box-shadow var(--transition-duration) var(--transition-timing-function);
+}
+
+.exemples-list-link:hover,
+.exemples-list-link:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+} 
+
+.exemples-list-link:hover .overlay {
+    transform: translateY(0);
+}
+
 .exemples-item-container {
     border: 1px solid #EEEEEE;
     border-top: 0;
@@ -515,17 +544,6 @@ img {
     line-height: 1.87;
     letter-spacing: 0.03em;
 }
-
-.exemples-list-link {
-    display: block;
-
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.exemples-list-link:hover,
-.exemples-list-link:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-} 
 
 /* END PORTFOLIO PAGE */
 
@@ -604,7 +622,7 @@ footer .logo {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
 
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--transition-timing-function);
 }
 
 .general-social-list-svg {
